@@ -1,0 +1,27 @@
+# See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'config.ru'
+Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: true
+  Max: 25
+  ExcludedMethods:
+    - refine
+  Exclude:
+    - '**/*.gemspec'
+    - 'spec/*_spec.rb'
+Metrics/MethodLength:
+  Enabled: true
+  Max: 15
+  ExcludedMethods: []
+Metrics/LineLength:
+  Enabled: true
+  Max: 120
