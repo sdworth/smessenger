@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignInsController < ApplicationController
   def new; end
 
@@ -5,7 +7,7 @@ class SignInsController < ApplicationController
     user = User.find_by(username: params[:username], password: params[:password])
 
     if !user
-      redirect_to new_sign_in_path, alert: "Oops! No match found, please try again."
+      redirect_to new_sign_in_path, alert: 'Oops! No match found, please try again.'
       return
     end
 

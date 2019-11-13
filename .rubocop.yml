@@ -8,6 +8,7 @@ AllCops:
     - 'config/**/*'
     - 'bin/**/*'
     - 'config.ru'
+    - 'db/schema'
 Style/Documentation:
   Enabled: false
 Metrics/BlockLength:
@@ -25,3 +26,5 @@ Metrics/MethodLength:
 Metrics/LineLength:
   Enabled: true
   Max: 120
+Style/NegatedIf:
+  Enabled: false

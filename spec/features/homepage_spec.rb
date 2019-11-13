@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Homepage', type: :feature do
   let(:user) { create(:user) }
 
@@ -31,7 +33,7 @@ RSpec.describe 'Homepage', type: :feature do
 
       click_button 'Sign In'
 
-      expect(page).to have_content("Oops! No match found, please try again.")
+      expect(page).to have_content('Oops! No match found, please try again.')
     end
   end
 end
