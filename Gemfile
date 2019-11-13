@@ -21,6 +21,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.9.0'
   gem 'rubocop', require: false
 end
