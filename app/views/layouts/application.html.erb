@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <%= link_to root_path do %>
+        <div class="logo">
+          SMessenger
+        </div>
+      <% end %>
+
+      <% if current_user %>
+        <%= button_to 'Sign Out', sign_in_path, method: :delete %>
+      <% end %>
+    </div>
+
+    <div><%= flash[:alert] %></div>
+    <div><%= flash[:notice] %></div>
+
+    <div style="padding: 20px;">
+      <%= yield %>
+    </div>
   </body>
 </html>

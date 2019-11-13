@@ -1,6 +1,3 @@
 class ConversationsController < ApplicationController
-
-  def index
-    @current_user = current_user
-  end
+  def index; end
 end

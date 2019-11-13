@@ -13,4 +13,10 @@ class SignInsController < ApplicationController
 
     redirect_to conversations_path
   end
+
+  def destroy
+    cookies.delete(:user_id)
+
+    redirect_to root_path, notice: 'You have been signed out. Have a nice day!'
+  end
 end
