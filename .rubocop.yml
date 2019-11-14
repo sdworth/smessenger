@@ -8,7 +8,8 @@ AllCops:
     - 'config/**/*'
     - 'bin/**/*'
     - 'config.ru'
-    - 'db/schema'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
 Style/Documentation:
   Enabled: false
 Metrics/BlockLength:
@@ -18,7 +19,7 @@ Metrics/BlockLength:
     - refine
   Exclude:
     - '**/*.gemspec'
-    - 'spec/*_spec.rb'
+    - 'spec/**/*'
 Metrics/MethodLength:
   Enabled: true
   Max: 15
@@ -28,3 +29,6 @@ Metrics/LineLength:
   Max: 120
 Style/NegatedIf:
   Enabled: false
+Lint/HandleExceptions:
+  Exclude:
+    - 'spec/**/*'

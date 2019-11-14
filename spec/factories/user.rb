@@ -2,7 +2,9 @@
 
 FactoryBot.define do
   factory User do
-    username { '2b' }
+    sequence :username do |n|
+      "#{n}b"
+    end
     password { 'yoRHa' }
   end
 end

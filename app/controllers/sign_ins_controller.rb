@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class SignInsController < ApplicationController
-  def new; end
+  def new
+    redirect_to conversations_path if current_user
+  end
 
   def create
     user = User.find_by(username: params[:username], password: params[:password])
