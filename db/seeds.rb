@@ -4,12 +4,17 @@
 User.destroy_all
 Conversation.destroy_all
 UserConversation.destroy_all
+Message.destroy_all
 
 devola = User.create(username: 'devola', password: 'popola')
 popola = User.create(username: 'popola', password: 'devola')
 anemone = User.create(username: 'anemone', password: 'a2')
 nier = User.create(username: 'nier', password: 'yonah')
 
-Conversation.build([devola, popola])
+devola_popola = Conversation.build([devola, popola])
 Conversation.build([devola, anemone])
 Conversation.build([popola, nier])
+
+Message.create(user: devola, conversation: devola_popola, body: "i found the part we're looking for")
+Message.create(user: popola, conversation: devola_popola, body: "Oh good! Let's hurry back to camp.")
+Message.create(user: devola, conversation: devola_popola, body: 'yeah. i think the kid will appreciate it')

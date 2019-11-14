@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Homepage', type: :feature do
+RSpec.describe 'Homepage' do
   let(:user) { create(:user) }
 
   it 'shows a welcome message' do

@@ -5,9 +5,11 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
 <div id="conversations">
   <ul>
     <% @conversations.each do |conversation| %>
-      <li class="conversation">
-        <%= conversation.user_list(current_user) %>
-      </li>
+      <%= link_to conversation_path(conversation) do %>
+        <li class="conversation">
+          <%= conversation.user_list(current_user) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
