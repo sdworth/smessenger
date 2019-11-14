@@ -1,6 +1,6 @@
 <h1>Conversation with: <%= @conversation.user_list(current_user) %></h1>
 
-<ul class="messages">
+<ul id="messages">
   <% @conversation.messages.each do |message| %>
     <!--these might make sense as helper methods.-->
     <% is_user_message = message.user.id == current_user.id %>
@@ -20,3 +20,6 @@
     <%= f.submit 'Send Message' %>
   </div>
 <% end %>
+
+<div id="conversationId" style="display: none"><%= @conversation.id %></div>
+<div id="userId" style="display: none"><%= current_user.id %></div>

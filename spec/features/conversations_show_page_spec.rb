@@ -13,7 +13,7 @@ RSpec.describe 'Conversations Show Page' do
 
     visit conversation_path(conversation)
 
-    within('.messages') do
+    within('#messages') do
       expect(page).to have_selector('.message', count: 3)
 
       within('.message:first-child') do
@@ -35,7 +35,7 @@ RSpec.describe 'Conversations Show Page' do
 
     click_button 'Send Message'
 
-    within('.messages') do
+    within('#messages') do
       expect(page).to have_content("cause we're gonna shout it loud")
     end
   end
