@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resource :sign_in, only: [:new, :create, :destroy]
 
-  resources :conversations
+  resources :conversations, except: [:destroy, :edit, :update] do
+    resources :messages, only: [:create]
+  end
 end

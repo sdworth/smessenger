@@ -5,12 +5,12 @@ class Conversation < ApplicationRecord
   has_many :users, through: :user_conversations
   has_many :messages
 
-  def self.build(users)
+  def self.build(user_ids)
     transaction do
       conversation = create!
 
-      users.each do |user|
-        UserConversation.create!(user_id: user.id, conversation_id: conversation.id)
+      user_ids.each do |user_id|
+        UserConversation.create!(user_id: user_id, conversation_id: conversation.id)
       end
 
       conversation

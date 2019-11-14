@@ -5,11 +5,11 @@ RSpec.describe Conversation do
     let(:user_one) { create(:user) }
     let(:user_two) { create(:user) }
 
-    it 'takes in a list of users and builds a conversation and supporting user conversations' do
+    it 'takes in a list of user ids and builds a conversation and supporting user conversations' do
       expect(Conversation.count).to eq(0)
       expect(UserConversation.count).to eq(0)
 
-      conversation = Conversation.build([user_one, user_two])
+      conversation = Conversation.build([user_one.id, user_two.id])
 
       expect(Conversation.count).to eq(1)
       expect(UserConversation.count).to eq(2)
@@ -24,7 +24,7 @@ RSpec.describe Conversation do
       expect(UserConversation.count).to eq(0)
 
       try do
-        Conversation.build([user_one, user_two])
+        Conversation.build([user_one.id, user_two.id])
       rescue StandardError
       end
 

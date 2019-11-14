@@ -1,14 +1,22 @@
 <h1>Conversation with: <%= @conversation.user_list(current_user) %></h1>
 
-<ul>
+<ul class="messages">
   <% @conversation.messages.each do |message| %>
     <!--these might make sense as helper methods.-->
     <% is_user_message = message.user.id == current_user.id %>
     <% message_color = is_user_message ? 'seagreen' : 'black' %>
     <% display_username = is_user_message ? 'you' : message.user.username %>
 
-    <li style="color: <%= message_color %>">
+    <li class="message" style="color: <%= message_color %>">
       <%= display_username %>: <%= message.body %>
     </li>
   <% end %>
 </ul>
+
+<%= form_with model: @message, url: conversation_messages_path(@conversation) do |f| %>
+  <div>
+    <%= f.text_field :body %>
+
+    <%= f.submit 'Send Message' %>
+  </div>
+<% end %>

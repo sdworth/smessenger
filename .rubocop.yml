@@ -32,3 +32,5 @@ Style/NegatedIf:
 Lint/HandleExceptions:
   Exclude:
     - 'spec/**/*'
+Metrics/AbcSize:
+  Max: 20

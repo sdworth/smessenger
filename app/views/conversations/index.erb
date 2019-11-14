@@ -13,3 +13,16 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
     <% end %>
   </ul>
 </div>
+
+<h2>Start a new conversation</h2>
+<%= form_with model: @conversation do |f| %>
+  <div>
+    <%= f.label :usernames, 'Enter usernames of people you would like to chat with, separated by a comma:' %>
+
+    <div>
+      <%= f.text_area :usernames %>
+    </div>
+
+    <%= f.submit 'Start Conversation' %>
+  </div>
+<% end %>
