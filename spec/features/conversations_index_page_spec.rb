@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require './app/helpers/time_helper'
+
 RSpec.describe 'Conversations Index Page' do
+  include TimeHelper
+
   let!(:user_one) { create(:user) }
   let!(:user_two) { create(:user) }
   let!(:user_three) { create(:user) }
@@ -14,12 +18,15 @@ RSpec.describe 'Conversations Index Page' do
     visit conversations_path
   end
 
-  it "shows a list of the user's conversations" do
+  it "shows a list of the user's conversations and when they were last updated" do
     within('#conversations') do
       expect(page).to have_selector('.conversation', count: 2)
 
       expect(page).to have_content(user_two.username)
+      expect(page).to have_content(human_readable_time(conversation_one.updated_at))
+
       expect(page).to have_content(user_three.username)
+      expect(page).to have_content(human_readable_time(conversation_two.updated_at))
     end
   end
 
