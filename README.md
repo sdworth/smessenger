@@ -55,7 +55,7 @@ username: popola
 password: devola
 ```
 
-Conversations will live update using WebSockets--to see it in action, log in as these two users in either separate browsers or incognito windows, open their conversation with each other and send messages to watch the conversation update!
+Conversations will live update using WebSockets. To see it in action, log in as these two users in either separate browsers or incognito windows, open their conversation with each other, and send messages to watch the conversation update in realtime!
 
 ## Run the tests
 
