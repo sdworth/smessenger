@@ -27,7 +27,7 @@ RSpec.describe ConversationsController do
         user_two.username,
         user_three.username,
         user_four.username
-      ]
+      ].join(', ')
     end
 
     before do
@@ -45,7 +45,16 @@ RSpec.describe ConversationsController do
     end
 
     it 'returns an error if a username is not found' do
-      post :create, params: { conversation: { usernames: ['a2'] } }
+      post :create, params: { conversation: { usernames: 'a2' } }
+
+      expect(response).to redirect_to(conversations_path)
+      expect(flash[:alert]).to eq(
+        "We couldn't find matches for all the usernames you specified and so your conversation was not created."
+      )
+    end
+
+    it 'returns an error if no usernames are supplied' do
+      post :create, params: { conversation: { usernames: '' } }
 
       expect(response).to redirect_to(conversations_path)
       expect(flash[:alert]).to eq(

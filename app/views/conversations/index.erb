@@ -27,7 +27,7 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
     <%= f.label :usernames, 'Enter usernames of people you would like to chat with, separated by a comma:' %>
 
     <div  class="form-group">
-      <%= f.text_area :usernames, class: 'form-control' %>
+      <%= f.text_area :usernames, class: 'form-control', placeholder: 'example: kaine, emil' %>
     </div>
 
     <%= f.submit 'Start Conversation', class: 'btn btn-info' %>
