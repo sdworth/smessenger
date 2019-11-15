@@ -7,10 +7,10 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
 <h1>Conversations</h1>
 
 <div id="conversations">
-  <ul>
+  <ul data-turbolinks="false">
     <% @conversations.each do |conversation| %>
       <%= link_to conversation_path(conversation) do %>
-        <li class="conversation" data-turbolinks="false">
+        <li class="conversation">
           <%= conversation.user_list(current_user) %> (last message at: <%= human_readable_time(conversation.updated_at) %>)
         </li>
       <% end %>
@@ -27,7 +27,7 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
     <%= f.label :usernames, 'Enter usernames of people you would like to chat with, separated by a comma:' %>
 
     <div  class="form-group">
-      <%= f.text_area :usernames, class: 'form-control', placeholder: 'example: kaine, emil' %>
+      <%= f.text_area :usernames, class: 'form-control', placeholder: 'example: kainé, emil' %>
     </div>
 
     <%= f.submit 'Start Conversation', class: 'btn btn-info' %>
