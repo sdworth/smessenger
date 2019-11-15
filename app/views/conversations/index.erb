@@ -10,7 +10,7 @@ Welcome <%= current_user.username.capitalize %>! Click a conversation to view yo
   <ul>
     <% @conversations.each do |conversation| %>
       <%= link_to conversation_path(conversation) do %>
-        <li class="conversation">
+        <li class="conversation" data-turbolinks="false">
           <%= conversation.user_list(current_user) %>
         </li>
       <% end %>
