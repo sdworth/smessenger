@@ -8,9 +8,6 @@ window.addEventListener('load', () => {
 
     consumer.subscriptions.create({channel: "MessageChannel", id: conversationId}, {
       received(data) {
-        console.log(data);
-        console.log(document.getElementById('conversationId').innerText);
-
         if(!(data.user_id == document.getElementById('userId').innerText)) {
           const newMessage = document.createElement("li");
           const messageText = document.createTextNode(`${data.username}: ${data.body}`);

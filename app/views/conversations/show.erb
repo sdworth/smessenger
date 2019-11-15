@@ -1,5 +1,7 @@
 <h1>Conversation with: <%= @conversation.user_list(current_user) %></h1>
 
+<br>
+
 <ul id="messages">
   <% @conversation.messages.each do |message| %>
     <!--these might make sense as helper methods.-->
@@ -13,11 +15,13 @@
   <% end %>
 </ul>
 
-<%= form_with model: @message, url: conversation_messages_path(@conversation) do |f| %>
-  <div>
-    <%= f.text_field :body %>
+<%= form_with model: @message, url: conversation_messages_path(@conversation), html: { class: 'form-inline' } do |f| %>
+  <div class="form-group mx-sm-3">
+    <%= f.text_field :body, class: 'form-control', placeholder: 'Add a message' %>
+  </div>
 
-    <%= f.submit 'Send Message' %>
+  <div class="form-group">
+    <%= f.submit 'Send Message', class: 'btn btn-info' %>
   </div>
 <% end %>
 

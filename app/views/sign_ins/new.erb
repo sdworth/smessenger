@@ -1,15 +1,17 @@
-<%= form_with(url: sign_in_path) do |f| %>
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
+<div class="center-container">
+  <%= form_with(url: sign_in_path, html: {class: 'center-element'}) do |f| %>
+    <div class="form-group row">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= f.submit 'Sign In' %>
-  </div>
-<% end %>
+    <div class="form-group row">
+      <%= f.submit 'Sign In', class: 'btn btn-info' %>
+    </div>
+  <% end %>
+</div>
