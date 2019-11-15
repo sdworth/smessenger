@@ -22,6 +22,7 @@ Next, install dependencies:
 
 ```
 $ bundle install
+$ yarn install
 ```
 
 Setup the database, including seed data:
@@ -72,4 +73,4 @@ $ bundle exec rspec
 
 ## Design decisions
 
-Notes on the thought process behind this project can be found at [development_notes.md](DEVELOPMENT_NOTES.md)
+Notes on the thought process behind this project can be found at [DEVELOPMENT_NOTES.md](DEVELOPMENT_NOTES.md)

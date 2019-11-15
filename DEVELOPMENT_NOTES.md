@@ -22,7 +22,7 @@ The conversations are ordered with the newest ones on top so that a user can qui
 
 However, I think that a better user experience would be to call out conversations with unread messages in them. This would require a more sophisticated implementation to keep track of which user is up to date on a conversation, possibly through a "reads" table.
 
-There are some minor aesthetic uses of the Bootstrap gem, but otherwise I did not put much effort into the styling of the application in accordance with the instructions. No thought was given to css class organization or css code style.
+There are some minor aesthetic uses of the Bootstrap gem, but otherwise I did not put much effort into the styling of the application in accordance with the instructions. No thought was given to css class organization or css code style. The conversation view is very retro!
 
 ## Model Implementations
 
@@ -43,6 +43,6 @@ This was the first opportunity I've had to use Rails 6 and the ActionCable libra
 ## Other things I would do in the future
 
 - There was no thought given to accessibility in the build out of this application, and I would want to audit the application for issues, as well as explore automated testing options.
-- Many parts of the application could use a bit of a UI overhaul, but I think creating a conversation is a particularly clunky interaction currently.
+- Many parts of the application could use a bit of a UI overhaul, but I think creating a conversation is a particularly clunky interaction currently, and prone to bugs. It breaks, for example, if there's a newline at the end of the username list.
 - A lot of application logic is in the controllers--it's relatively simple right now, but I would want to extract that out to separate classes for maintainability and testability.
 - Aside from a preventing n+1 queries a few places, I haven't done much query optimization. As the application scales, I would monitor performance and fix slow queries. 

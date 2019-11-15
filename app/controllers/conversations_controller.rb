@@ -14,24 +14,34 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    usernames = params[:conversation][:usernames].split(/, |,/)
-    user_ids = User.where(username: usernames).pluck(:id)
+    usernames = parse_usernames
+    user_ids = convert_usernames_to_ids(usernames)
 
     if usernames.empty? || user_ids.length < usernames.length
       redirect_to conversations_path, alert: username_mismatch
       return
     end
 
-    user_ids << current_user.id
-
-    conversation = Conversation.build(user_ids)
+    conversation = build_conversation_with_current_user(user_ids)
 
     redirect_to conversation_path(conversation)
   end
 
   private
 
+  def parse_usernames
+    params[:conversation][:usernames].split(/, |,/)
+  end
+
+  def convert_usernames_to_ids(usernames)
+    User.where(username: usernames).pluck(:id)
+  end
+
   def username_mismatch
     "We couldn't find matches for all the usernames you specified and so your conversation was not created."
+  end
+
+  def build_conversation_with_current_user(user_ids)
+    Conversation.build(user_ids + [current_user.id])
   end
 end

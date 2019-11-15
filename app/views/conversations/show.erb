@@ -4,12 +4,11 @@
 
 <ul id="messages">
   <% @conversation.messages.includes(:user).each do |message| %>
-    <!--these might make sense as helper methods.-->
     <% is_user_message = message.user.id == current_user.id %>
-    <% message_color = is_user_message ? 'seagreen' : 'black' %>
+    <% message_class = is_user_message ? 'user-message' : 'other-message' %>
     <% display_username = is_user_message ? 'you' : message.user.username %>
 
-    <li class="message" style="color: <%= message_color %>">
+    <li class="message <%= message_class %>">
       <%= display_username %>: <%= message.body %>
     </li>
   <% end %>

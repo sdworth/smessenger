@@ -43,4 +43,19 @@ RSpec.describe Conversation do
       expect(conversation.user_list(user_one)).to eq("#{user_two.username}, #{user_three.username}")
     end
   end
+
+  context '.user_is_participant?' do
+    let!(:user_one) { create(:user) }
+    let!(:user_two) { create(:user) }
+    let!(:user_three) { create(:user) }
+    let!(:conversation) { create(:conversation_with_users, users: [user_one, user_two]) }
+
+    it 'returns true if the user is a participant' do
+      expect(conversation.user_is_participant?(user_one)).to eq true
+    end
+
+    it 'returns false if the user is not a participant' do
+      expect(conversation.user_is_participant?(user_three)).to eq false
+    end
+  end
 end
