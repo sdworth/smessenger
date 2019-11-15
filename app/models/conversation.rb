@@ -23,4 +23,8 @@ class Conversation < ApplicationRecord
       .map(&:username)
       .join(', ')
   end
+
+  def user_is_participant?(user)
+    users.include?(user)
+  end
 end

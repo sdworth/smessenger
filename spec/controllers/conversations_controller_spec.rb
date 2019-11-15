@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.describe ConversationsController do
+  context '#show' do
+    let(:user) { create(:user) }
+    let(:conversation) { create(:conversation) }
+
+    before do
+      allow_any_instance_of(ConversationsController).to receive(:current_user).and_return(user)
+    end
+
+    it "only lets users see conversations that they're participating in" do
+      get :show, params: { id: conversation.id }
+
+      expect(response).to redirect_to root_path
+      expect(flash[:alert]).to eq("That's not your conversation!")
+    end
+  end
+
   context '#create' do
     let(:user_one) { create(:user) }
     let(:user_two) { create(:user) }

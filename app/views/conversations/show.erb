@@ -3,7 +3,7 @@
 <br>
 
 <ul id="messages">
-  <% @conversation.messages.each do |message| %>
+  <% @conversation.messages.includes(:user).each do |message| %>
     <!--these might make sense as helper methods.-->
     <% is_user_message = message.user.id == current_user.id %>
     <% message_color = is_user_message ? 'seagreen' : 'black' %>
